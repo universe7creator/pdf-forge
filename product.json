@@ -1,0 +1,17 @@
+{
+  "name": "PDF Forge",
+  "slug": "pdf-forge",
+  "tagline": "Extract text, images, and data from PDFs instantly",
+  "description": "Extract text, images, and data from PDFs instantly",
+  "price": "19",
+  "features": [],
+  "tech_stack": "Vercel + Node.js",
+  "status": "building",
+  "vercel_url": null,
+  "github_url": null,
+  "lemonsqueezy_checkout_url": null,
+  "lemonsqueezy_product_id": null,
+  "webhook_url": null,
+  "created_cycle": null,
+  "deployed_cycle": null
+}
