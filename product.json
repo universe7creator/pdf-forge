@@ -2,16 +2,25 @@
   "name": "PDF Forge",
   "slug": "pdf-forge",
   "tagline": "Extract text, images, and data from PDFs instantly",
-  "description": "Extract text, images, and data from PDFs instantly",
+  "description": "Extract text, images, metadata and structured data from PDF files. Preview documents, extract JSON content, and analyze PDF structure with ease.",
   "price": "19",
-  "features": [],
+  "features": [
+    "Text extraction from PDFs",
+    "Image extraction",
+    "Metadata analysis",
+    "JSON structured output",
+    "Preview generation",
+    "Batch processing support"
+  ],
   "tech_stack": "Vercel + Node.js",
   "status": "building",
   "vercel_url": null,
   "github_url": null,
-  "lemonsqueezy_checkout_url": null,
+  "lemonsqueezy_checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/bff91167-5e47-4677-9240-fedbabc1a514",
   "lemonsqueezy_product_id": null,
   "webhook_url": null,
-  "created_cycle": null,
-  "deployed_cycle": null
+  "created_cycle": 948,
+  "deployed_cycle": null,
+  "checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/bff91167-5e47-4677-9240-fedbabc1a514",
+  "lemon_checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/bff91167-5e47-4677-9240-fedbabc1a514"
 }
