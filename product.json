@@ -14,7 +14,7 @@
   ],
   "tech_stack": "Vercel + Node.js",
   "status": "live",
-  "vercel_url": "https://pdf-forge-7lpqmc4pl-madnessqws-projects.vercel.app",
+  "vercel_url": "https://pdf-forge.vercel.app",
   "github_url": null,
   "lemonsqueezy_checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/bff91167-5e47-4677-9240-fedbabc1a514",
   "lemonsqueezy_product_id": null,
@@ -23,5 +23,7 @@
   "deployed_cycle": null,
   "checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/bff91167-5e47-4677-9240-fedbabc1a514",
   "lemon_checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/bff91167-5e47-4677-9240-fedbabc1a514",
-  "deployment_url": "https://pdf-forge-7lpqmc4pl-madnessqws-projects.vercel.app"
+  "deployment_url": "https://pdf-forge.vercel.app",
+  "seo_optimized": true,
+  "seo_optimized_at": "2026-04-21T17:45:00Z"
 }
