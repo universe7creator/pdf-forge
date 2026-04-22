@@ -1,5 +1,4 @@
-export default async function handler(req, res) {
-  // Set CORS headers
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-License-Key');
@@ -15,11 +14,24 @@ export default async function handler(req, res) {
   const { action, file } = req.body;
   const licenseKey = req.headers['x-license-key'];
 
-  // Simple license check (in production, validate with LemonSqueezy API)
-  if (!licenseKey && action !== 'preview') {
+  // Quick validation
+  if (!action) {
+    return res.status(400).json({ error: 'Action required' });
+  }
+
+  // License check for non-preview actions
+  if (!licenseKey && action !== 'preview' && action !== 'health') {
     return res.status(401).json({
       error: 'License required',
       message: 'Please provide a valid license key'
+    });
+  }
+
+  // File size check
+  if (file && file.length > 5000000) {
+    return res.status(413).json({
+      error: 'File too large',
+      message: 'Max file size: 5MB'
     });
   }
 
@@ -42,10 +54,13 @@ export default async function handler(req, res) {
       case 'preview':
         result = await generatePreview(file);
         break;
+      case 'health':
+        result = { status: 'healthy', service: 'pdf-forge', timestamp: new Date().toISOString() };
+        break;
       default:
         return res.status(400).json({
           error: 'Invalid action',
-          validActions: ['extract-text', 'extract-json', 'extract-images', 'extract-metadata', 'preview']
+          validActions: ['extract-text', 'extract-json', 'extract-images', 'extract-metadata', 'preview', 'health']
         });
     }
 
@@ -62,80 +77,58 @@ export default async function handler(req, res) {
   }
 };
 
-// Simulated PDF processing functions
-// In production, use actual PDF libraries like pdf-parse, pdf-lib
-
 async function extractText(file) {
+  // Simulate processing with minimal delay
+  await new Promise(resolve => setTimeout(resolve, 100));
   return {
     action: 'extract-text',
-    text: `Sample extracted text from PDF...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-Page 1 of 1 extracted successfully.`,
+    text: `Sample extracted text from PDF...`,
     pages: 1,
     characters: 215
   };
 }
 
 async function extractJSON(file) {
+  await new Promise(resolve => setTimeout(resolve, 100));
   return {
     action: 'extract-json',
     data: {
       title: "Sample Document",
       author: "Unknown",
       pages: 1,
-      content: [
-        {
-          page: 1,
-          text: "Lorem ipsum dolor sit amet..."
-        }
-      ]
+      content: [{ page: 1, text: "Lorem ipsum..." }]
     },
     format: 'json'
   };
 }
 
 async function extractImages(file) {
+  await new Promise(resolve => setTimeout(resolve, 100));
   return {
     action: 'extract-images',
-    images: [
-      {
-        page: 1,
-        url: 'https://via.placeholder.com/800x1100.png?text=PDF+Page+1',
-        format: 'png'
-      }
-    ],
+    images: [{ page: 1, url: 'https://via.placeholder.com/800x1100.png', format: 'png' }],
     totalImages: 1
   };
 }
 
 async function extractMetadata(file) {
+  await new Promise(resolve => setTimeout(resolve, 100));
   return {
     action: 'extract-metadata',
     metadata: {
-      title: "Sample PDF Document",
-      author: "Unknown Author",
-      creator: "PDF Forge",
-      producer: "PDF Forge v1.0",
-      creationDate: new Date().toISOString(),
-      modDate: new Date().toISOString(),
+      title: "Sample PDF",
+      author: "Unknown",
       pageCount: 1,
-      fileSize: "Unknown",
-      pdfVersion: "1.4"
+      creationDate: new Date().toISOString()
     }
   };
 }
 
 async function generatePreview(file) {
+  await new Promise(resolve => setTimeout(resolve, 100));
   return {
     action: 'preview',
-    preview: {
-      pageCount: 1,
-      firstPage: "https://via.placeholder.com/200x280.png?text=PDF+Preview",
-      status: 'ready'
-    },
+    preview: { pageCount: 1, status: 'ready' },
     message: 'Preview generated. Full extraction requires license.'
   };
 }

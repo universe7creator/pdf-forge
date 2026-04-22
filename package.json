@@ -1,7 +1,6 @@
 {
   "name": "pdf-forge",
   "version": "1.0.0",
-  "type": "module",
   "description": "Extract text, images, and data from PDFs instantly",
   "main": "api/process.js",
   "scripts": {

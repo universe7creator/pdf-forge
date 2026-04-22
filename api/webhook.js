@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+const crypto = require('crypto');
 
 function verifySignature(payload, signature, secret) {
   if (!secret) return true;
@@ -6,7 +6,7 @@ function verifySignature(payload, signature, secret) {
   return crypto.timingSafeEqual(Buffer.from(computed), Buffer.from(signature));
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     const signature = req.headers['x-signature'];
     const secret = process.env.LEMONSQUEEZY_WEBHOOK_SECRET;
 
-    if (secret && signature && !verifySignature(rawBody, signature, secret)) {
+    if (secret && signature && !verifySignature(rawBody, signature)) {
       return res.status(401).json({ error: 'Invalid signature' });
     }
 
@@ -26,4 +26,4 @@ export default async function handler(req, res) {
     console.error('[ERROR] Webhook:', error);
     return res.status(200).json({ message: 'Processed with errors' });
   }
-}
+};

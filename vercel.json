@@ -4,15 +4,10 @@
     { "src": "api/**/*.js", "use": "@vercel/node" },
     { "src": "index.html", "use": "@vercel/static" }
   ],
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "routes": [
-    { "src": "/api/health", "dest": "/api/health.js" },
-    { "src": "/api/process", "dest": "/api/process.js" },
-    { "src": "/api/webhook", "dest": "/api/webhook.js" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/api/health", "destination": "/api/health.js" },
+    { "source": "/api/process", "destination": "/api/process.js" },
+    { "source": "/api/webhook", "destination": "/api/webhook.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
