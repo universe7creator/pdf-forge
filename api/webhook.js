@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+import crypto from 'crypto';
 
 function verifySignature(payload, signature, secret) {
   if (!secret) return true;
@@ -6,7 +6,7 @@ function verifySignature(payload, signature, secret) {
   return crypto.timingSafeEqual(Buffer.from(computed), Buffer.from(signature));
 }
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -26,4 +26,4 @@ module.exports = async (req, res) => {
     console.error('[ERROR] Webhook:', error);
     return res.status(200).json({ message: 'Processed with errors' });
   }
-};
+}
