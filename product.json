@@ -26,10 +26,11 @@
   "seo_optimized_at": "2026-04-21T17:45:00Z",
   "payment_provider": "polar",
   "spec_version": "1.0",
-  "polar_product_id": "fe5745f7-131a-4793-bdf7-3e9e7af7679c",
-  "polar_product_price_id": "94d3eecb-5a86-46bf-8bc7-74351dc27869",
+  "polar_product_id": "cf5ff700-88c3-4f59-b77c-930613338dd4",
+  "polar_product_price_id": "ff4aca34-ab6f-454e-9e81-e07accd95174",
   "polar_checkout_link_id": "767012e0-6615-47b9-986b-0a455b4fb14c",
   "alternate_url": "https://pdf-forge-five.vercel.app",
   "canonical_url": "https://pdf-forge.vercel.app",
-  "canonical_url_override": "https://pdf-forge-five.vercel.app"
+  "canonical_url_override": "https://pdf-forge-five.vercel.app",
+  "category": "utilities"
 }

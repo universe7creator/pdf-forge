@@ -894,7 +894,7 @@
                     <li><span class="check">✓</span> API access included</li>
                     <li><span class="check">✓</span> 24/7 support</li>
                 </ul>
-                <a href="#" class="btn btn-primary pricing-cta" id="buyBtn">
+                <a href="https://buy.polar.sh/polar_cl_vCswYFsXyGJ6w8PAioKHmvPKfwccdX39flPCN3D4MaT" class="btn btn-primary pricing-cta" id="buyBtn" target="_blank">
                     <span>Buy Now</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -981,7 +981,7 @@
     </footer>
 
     <script>
-        const CHECKOUT_URL = window.__CHECKOUT_URL || null;
+        const CHECKOUT_URL = "https://buy.polar.sh/polar_cl_vCswYFsXyGJ6w8PAioKHmvPKfwccdX39flPCN3D4MaT";
         document.getElementById('buyBtn').addEventListener('click', (e) => {
             e.preventDefault();
             if (CHECKOUT_URL) window.open(CHECKOUT_URL, '_blank');
